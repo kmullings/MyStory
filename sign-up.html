@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MyStory - Sign-Up</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="signup-page">
+    <header>
+        <iframe src="header.html" height="60" width="100%"></iframe>
+    </header>
+    <section class="main-body">
+        <div class="sign-up">
+            <h1 class="sign-up-header">Sign up</h1>
+            <form class="sign-up-form">
+                <!-- Alias -->
+                <div class="sign-up-info">
+                    <label for="alias">Alias</label>
+                    <input type="text" placeholder="Enter your Alias here" />
+                </div>
+                <!-- Email -->
+                <div class="sign-up-info">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" placeholder="Enter your email here" />
+                </div>
+                <!-- Gender -->
+                <div class="sign-up-info">
+                    <label for="gender">How do you gender identify?</label>
+                    <input id="gender" type="text" />
+                </div>
+                <!-- DOB -->
+                <div class="sign-up-info">
+                    <label for="DOB">Date of Birth</label>
+                    <input type="date" name="Date of Birth" data-date-inline-picker="true" />
+                </div>
+                <!-- Password -->
+                <div class="sign-up-info">
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Enter your password" />
+                </div>
+                <!-- Confirm Password -->
+                <div class="sign-up-info">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" placeholder="Confirm your password" />
+                </div>
+
+                <input id="sign-up-button" type="button" value="Sign-up" />
+            </form>
+        </div>
+    </section>
+    <iframe class="footer" src="footer.html" width="100%"></iframe>
+</body>
+
+</html>
