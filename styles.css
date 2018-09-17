@@ -9,12 +9,16 @@ input {
     padding-left: 10px;
 }
 
+header iframe {
+    height: 70px;
+}
+
 .footer {
     margin-top: 20px;
   
-    /* This is elements are fixed to the bottom of the screen */
+    /* This is how elements are fixed to the bottom of the screen */
     bottom: 0px;
-    position: fixed;
+    /* position: fixed; */
 }
 
 .footer-content {

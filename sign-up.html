@@ -5,57 +5,112 @@
     <title>MyStory - Sign-Up</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="sign-up.css">
+    <!-- <link rel="stylesheet" href="sign-up.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
 </head>
 
 <body class="signup-page">
     <header>
-        <iframe src="header.html" height="60" width="100%"></iframe>
+        <iframe src="header.html" width="100%"></iframe>
     </header>
-    <section class="main-body">
-        <div class="content">
-            <h1 class="title">Sign up</h1>
-            <form class="sign-up-form">
-                <!-- Alias -->
-                <div class="sign-up-info">
-                    <label for="alias">Alias</label>
-                    <input type="text" placeholder="Enter your Alias here" />
-                </div>
-                <!-- Email -->
-                <div class="sign-up-info">
-                    <label for="email">Email</label>
-                    <input id="email" type="email" placeholder="Enter your email here" />
-                </div>
-                <!-- Gender -->
-                <div class="sign-up-info">
-                    <label for="gender">How do you gender identify?</label>
-                    <input id="gender" type="text" />
-                </div>
-                <!-- DOB -->
-                <div class="sign-up-info">
-                    <label for="DOB">Date of Birth</label>
-                    <input type="date" name="Date of Birth" data-date-inline-picker="true" />
-                </div>
-                <!-- Password -->
-                <div class="sign-up-info">
-                    <label for="password">Password</label>
-                    <input type="password" placeholder="Enter your password" />
-                </div>
-                <!-- Confirm Password -->
-                <div class="sign-up-info">
-                    <label for="confirm-password">Confirm Password</label>
-                    <input type="password" placeholder="Confirm your password" />
-                </div>
+    <div class="content">
+        <h1 class="title">Sign up</h1>
+        <form id="signUpForm">
+            <!-- Alias -->
+            <div class="sign-up-info">
+                <label for="alias">Alias</label>
+                <input type="text" id="alias" name="alias" placeholder="Enter your Alias here" required />
+            </div>
+            <!-- Email -->
+            <div class="sign-up-info">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email here" required />
+            </div>
+            <!-- Gender -->
+            <div class="sign-up-info">
+                <label for="gender">How do you gender identify?</label>
+                <input type="text" id="gender" name="gender" required />
+            </div>
+            <!-- DOB -->
+            <div class="sign-up-info">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" data-date-inline-picker="true" required />
+            </div>
+            <!-- Password -->
+            <div class="sign-up-info">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required />
+            </div>
+            <!-- Confirm Password -->
+            <div class="sign-up-info">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required />
+            </div>
 
-                <div class="buttons">
-                    <input id="sign-up-button" class="button" type="button" value="Sign-up" />
-                    <a href="login.3.html">Login</a>
-                </div>
+            <div class="buttons">
+                <input id="sign-up-button" class="button" type="submit" value="Sign-up" />
+                <a href="login.3.html">Login</a>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <iframe class="footer" src="footer.html" width="100%"></iframe>
+    </footer>
 
-            </form>
-        </div>
-    </section>
-    <iframe class="footer" src="footer.html" width="100%"></iframe>
+    <script>
+        document.getElementById("signUpForm").addEventListener("submit", function (e) {
+            // debugger;
+
+            e.preventDefault();
+            signUp();
+        });
+
+        var signUp = function () {
+            const profile = {
+                firstName: "",
+                lastName: "",
+                alias: document.forms["signUpForm"]["alias"].value,
+                email: document.forms["signUpForm"]["email"].value,
+                gender: document.forms["signUpForm"]["gender"].value,
+                dob: document.forms["signUpForm"]["dob"].value,
+                password: document.forms["signUpForm"]["password"].value,
+            };
+            const confirmPassword = document.forms["signUpForm"]["confirm-password"].value
+
+            // document.write(JSON.stringify(profile));
+            console.log(JSON.stringify(profile));
+
+            // Check password
+            if (profile.password != confirmPassword) {
+                alert("Password must be the same as Confirmation Password.");
+            } else {
+                // Store profile
+                var profiles = window.localStorage.profiles ? JSON.parse(window.localStorage.profiles) : [];
+
+                // var profiles;
+
+                // if (window.localStorage.profiles) {
+                //     profiles = JSON.parse(window.localStorage.profiles);
+                // } else {
+                //     profiles = [];
+                // }
+
+                if (profiles.length == 0) {
+                    profile.id = 1;
+                } else {
+                    profile.id = profiles.length + 1;
+                }
+
+                profiles.push(profile);
+                window.localStorage.profiles = JSON.stringify(profiles);
+                window.sessionStorage.loggedIn = profile.email;
+                window.location.href = "/mystory/index.html";
+            }
+
+            return false;
+        }
+    </script>
 </body>
 
 </html>

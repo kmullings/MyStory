@@ -5,81 +5,128 @@
     <title>MyStory - Login</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
 </head>
 
 <body>
     <header>
-        <iframe src="header.html" height="60" width="100%"></iframe>
+        <iframe src="header.html" width="100%"></iframe>
     </header>
-    <div id="upsert-story">
-        <section>
-            <h1>Story</h1>
-            <article>
-                <!-- Title -->
-                <div>
-                    <label for="title">Title</label>
-                    <input id="title" type="text" placeholder="Enter Title" />
-                </div>
-                <!-- Text -->
-                <div>
-                    <label for="text">Text</label>
-                    <textarea id="text" rows="4" cols="50" placeholder="Enter Text"></textarea>
-                </div>
-                <!-- Lat -->
-                <div>
-                    <label for="lat">Lat</label>
-                    <span id="lat">12.4</span>
-                </div>
-                <!-- Long -->
-                <div>
-                    <label for="long">Lat</label>
-                    <span id="long">12.4</span>
-                </div>
-                <!-- Address 1 -->
-                <div>
-                    <label for="address1">Address 1</label>
-                    <input id="address1" type="text" placeholder="Enter Address 1" />
-                </div>
-                <!-- Address 2 -->
-                <div>
-                    <label for="address2">Address 2</label>
-                    <input id="address2" type="text" placeholder="Enter Address 2" />
-                </div>
-                <!-- City -->
-                <div>
-                    <label for="city">City</label>
-                    <input id="city" type="text" placeholder="Enter City" />
-                </div>
-                <!-- State -->
-                <div>
-                    <label for="state">State</label>
-                    <input id="state" type="text" placeholder="Enter State" />
-                </div>
-                <!-- Zip -->
-                <div>
-                    <label for="zip">Zip</label>
-                    <input id="zip" type="text" placeholder="Enter Zip" />
-                </div>
-                <!-- Country -->
-                <div>
-                    <label for="country">Country</label>
-                    <input id="country" type="text" placeholder="Enter Country" />
-                </div>
-                <!-- Date/Time -->
-                <div>
-                    <label for="date-time">Date/Time</label>
-                    <input id="date-time" type="" placeholder="Enter Date/Time" />
-                </div>
-                <!-- Published -->
-                <div>
-                    <label for="published">Publish</label>
-                    <input id="published" type="checkbox" />
-                </div>
-                <button id="save-button">Save</button>
-            </article>
-        </section>
+    <div class="content">
+        <h1 class="title">Story</h1>
+        <form id="upsertStoryForm">
+            <!-- Title -->
+            <div>
+                <label for="title">Title</label>
+                <input id="title" type="text" placeholder="Enter Title" />
+            </div>
+            <!-- Text -->
+            <div>
+                <label for="text">Text</label>
+                <textarea id="text" rows="4" cols="50" placeholder="Enter Text"></textarea>
+            </div>
+            <!-- Lat -->
+            <div>
+                <label for="lat">Lat</label>
+                <span id="lat">12.4</span>
+            </div>
+            <!-- Long -->
+            <div>
+                <label for="long">Long</label>
+                <span id="long">12.4</span>
+            </div>
+            <!-- Address 1 -->
+            <div>
+                <label for="address1">Address 1</label>
+                <input id="address1" type="text" placeholder="Enter Address 1" />
+            </div>
+            <!-- Address 2 -->
+            <div>
+                <label for="address2">Address 2</label>
+                <input id="address2" type="text" placeholder="Enter Address 2" />
+            </div>
+            <!-- City -->
+            <div>
+                <label for="city">City</label>
+                <input id="city" type="text" placeholder="Enter City" />
+            </div>
+            <!-- State -->
+            <div>
+                <label for="state">State</label>
+                <input id="state" type="text" placeholder="Enter State" />
+            </div>
+            <!-- Zip -->
+            <div>
+                <label for="zip">Zip</label>
+                <input id="zip" type="text" placeholder="Enter Zip" />
+            </div>
+            <!-- Country -->
+            <div>
+                <label for="country">Country</label>
+                <input id="country" type="text" placeholder="Enter Country" />
+            </div>
+            <!-- Date/Time -->
+            <div>
+                <label for="date-time">Date/Time</label>
+                <input id="date-time" type="datetime" placeholder="Enter Date/Time" />
+            </div>
+            <!-- Published -->
+            <div>
+                <label for="published">Publish</label>
+                <input id="published" type="checkbox" />
+            </div>
+
+            <div class="buttons">
+                <input id="save-button" class="button" type="submit" value="Save" />
+            </div>
+        </form>
     </div>
-    <iframe class="footer" src="footer.html" width="100%"></iframe>
+    <footer>
+        <iframe class="footer" src="footer.html" width="100%"></iframe>
+    </footer>
+
+    <script>
+        document.getElementById("upsertStoryForm").addEventListener("submit", function (e) {
+            debugger;
+
+            e.preventDefault();
+            upsertStoryForm();
+        });
+
+        var upsertStoryForm = function () {
+            const story = {
+                title: document.forms["upsertStoryForm"]["title"].value,
+                text: document.forms["upsertStoryForm"]["text"].value,
+                // lat: document.forms["upsertStoryForm"]["lat"].value,
+                // long: document.forms["upsertStoryForm"]["long"].value,
+                address1: document.forms["upsertStoryForm"]["address1"].value,
+                address2: document.forms["upsertStoryForm"]["address2"].value,
+                city: document.forms["upsertStoryForm"]["city"].value,
+                state: document.forms["upsertStoryForm"]["state"].value,
+                zip: document.forms["upsertStoryForm"]["zip"].value,
+                country: document.forms["upsertStoryForm"]["country"].value,
+                dateTime: document.forms["upsertStoryForm"]["date-time"].value,
+                createdBy: window.sessionStorage.loggedIn
+            };
+
+            console.log(JSON.stringify(story));
+
+            let stories = window.localStorage.stories ? JSON.parse(window.localStorage.stories) : [];
+
+            if (stories.length == 0) {
+                story.id = 1;
+            } else {
+                story.id = stories.length + 1;
+            }
+
+            stories.push(story);
+            window.localStorage.stories = JSON.stringify(stories);
+            window.location.href = "/mystory/story-details.html/?id=" + story.id;
+
+            return false;
+        }
+    </script>
 </body>
 
 </html>

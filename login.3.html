@@ -5,35 +5,81 @@
 	<title>MyStory - Login</title>
 	<link rel="stylesheet" href="reset.css">
 	<link rel="stylesheet" href="styles.css">
-	<link rel="stylesheet" href="login.css">
+	<!-- <link rel="stylesheet" href="login.css"> -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	 crossorigin="anonymous">
 </head>
 
 <body>
 	<header>
-		<iframe src="header.html" height="60" width="100%"></iframe>
+		<iframe src="header.html" width="100%"></iframe>
 	</header>
 	<section id="login-page">
 		<div class="content">
 			<h1 class="title">Login</h1>
-			<!-- Email HTML code -->
-			<div class="login-info">
-				<label for="email">Email</label>
-				<input id="email" type="email" placeholder="Enter your email here" />
-			</div>
-			<!-- Password HTML code -->
-			<div class="login-info">
-				<label for="password">Password</label>
-				<input type="password" placeholder="Enter your password here" />
-			</div>
-			
-			<div class="buttons">
-				<input id="login-button" class="button" type="button" value="Login" />
-				<a href="sign-up.html">Sign-up</a>
-				<a href="forgot-password.html">Forgot Password?</a>
-			</div>
+			<form id="loginForm">
+				<!-- Email HTML code -->
+				<div class="login-info">
+					<label for="email">Email</label>
+					<input id="email" name="email" type="email" placeholder="Enter your email" required />
+				</div>
+				<!-- Password HTML code -->
+				<div class="login-info">
+					<label for="password">Password</label>
+					<input id="password" name="password" type="password" placeholder="Enter your password" required />
+				</div>
+
+				<div class="buttons">
+					<input name="login-button" class="button" type="submit" value="Login" />
+					<a href="sign-up.html">Sign-up</a>
+					<a href="forgot-password.html">Forgot Password?</a>
+				</div>
+			</form>
 		</div>
 	</section>
-	<iframe class="footer" src="footer.html" width="100%"></iframe>
+	<footer>
+		<iframe class="footer" src="footer.html" width="100%"></iframe>
+	</footer>
+
+	<script>
+		document.getElementById("loginForm").addEventListener("submit", function (e) {
+			debugger;
+			e.preventDefault();
+			login();
+		});
+
+		var login = function () {
+			const user = {
+				email: document.forms["loginForm"]["email"].value,
+				password: document.forms["loginForm"]["password"].value
+			}
+
+			// document.write(JSON.stringify(user));
+			console.log(JSON.stringify(user));
+
+			// Validate user
+			var profiles = JSON.parse(window.localStorage.profiles);
+			var valid = false;
+
+			for (let index = 0; index < profiles.length; index++) {
+				const profile = profiles[index];
+
+				if ((profile.email == user.email) && (profile.password == user.password)) {
+					window.sessionStorage.loggedIn = profile.email;
+					alert("Valid User");
+					window.location.href = "/mystory/index.html";
+					valid = true;
+					break;
+				}
+			}
+
+			if (!valid) {
+				alert("Invalid User");
+			}
+
+			return false;
+		}
+	</script>
 </body>
 
 </html>

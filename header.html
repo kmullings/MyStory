@@ -24,14 +24,20 @@
                     <a href="sign-up.html" target="_parent">Sign Up</a>
                 </li>
                 <li>
-                    <a href="index.html" target="_parent">Logout</a>
+                    <a href="profile.html" target="_parent">Profile</a>
                 </li>
                 <li>
-                    <a href="profile.html" target="_parent">Profile</a>
+                    <a href="index.html" target="_parent" onclick="logout();">Logout</a>
                 </li>
             </ul>
         </nav>
     </header>
+
+    <script>
+        var logout = function () {
+            window.sessionStorage.loggedIn = false;
+        }
+    </script>
 </body>
 
 </html>
