@@ -64,7 +64,11 @@
             // Checked user is logged in
             if (typeof window.sessionStorage.loggedIn === "undefined" || window.sessionStorage.loggedIn === null || window.sessionStorage.loggedIn === "") {
                 alert("You need to be logged in first.");
+<<<<<<< HEAD
                 window.location.href = "/login.3.html";
+=======
+                window.location.href = "./login.3.html";
+>>>>>>> Made more class updates.
             }
 
             const results = loadProfile();
@@ -100,7 +104,11 @@
                 document.getElementById("dob").innerHTML = profile.dob;
             } else {  // Otherwise display error message and redirect user to login screen
                 alert("You don't have a profile buddy!");
+<<<<<<< HEAD
                 window.location.href = "/sign-up.html";
+=======
+                window.location.href = "./sign-up.html";
+>>>>>>> Made more class updates.
             }
         }
     </script>
