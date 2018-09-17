@@ -1,0 +1,24 @@
+.sign-up-info {
+    margin: 10px;
+}
+
+.sign-up-info label {
+    margin-right: 15px;
+}
+
+/* .sign-up-form {
+    display: block;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+/* @media screen and (min-width: 374px) {
+    body {
+        font-size: 2em;
+    }
+
+    .sign-up-info label {
+        color: red;
+    }
+} */

@@ -1,23 +1,61 @@
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333333;
+body {
+    font-size: 1.5em;
 }
 
-li {
-    float: left;
+input {
+    width: auto;
+    height: 25px;
+    font-size: .75em;
+    padding-left: 10px;
 }
 
-li a {
-    display: block;
-    color: white;
+.footer {
+    margin-top: 20px;
+  
+    /* This is elements are fixed to the bottom of the screen */
+    bottom: 0px;
+    position: fixed;
+}
+
+.footer-content {
+    font-size: .75em;
     text-align: center;
-    padding: 16px;
-    text-decoration: none;
 }
 
-li a:hover {
-    background-color: #111111;
+.title {
+    color: #0099ff;
+    text-align: center;
+    font-size: 3em;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.content {
+    width: 40%;
+
+    /* This is how elements are centered */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button {
+    font-size: 1em;
+    width: 125px;
+    height: 45px;
+    padding: 10px;
+    text-align: center;
+    vertical-align: center;
+    color: white;
+    background-color: #0099ff;
+}
+
+.buttons input, a {
+    margin: 5px;
+}
+
+@media screen and (max-width: 375px) {
+    body {
+        font-size: 2em;
+    }
 }

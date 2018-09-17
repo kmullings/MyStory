@@ -2,34 +2,38 @@
 <html lang="en">
 
 <head>
-    <title>MyStory - Login</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="styles.css">
+	<title>MyStory - Login</title>
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="login.css">
 </head>
 
 <body>
-    <header>
-        <iframe src="header.html" height="60" width="100%"></iframe>
-    </header>
-    <section id="login-page">
-        <h1>Login</h1>
-		<!-- Email HTML code -->
-		<div class="login-info">
-			<label for="email">Email</label>
-			<input id="email" type="email" placeholder="Enter your email here" />
+	<header>
+		<iframe src="header.html" height="60" width="100%"></iframe>
+	</header>
+	<section id="login-page">
+		<div class="content">
+			<h1 class="title">Login</h1>
+			<!-- Email HTML code -->
+			<div class="login-info">
+				<label for="email">Email</label>
+				<input id="email" type="email" placeholder="Enter your email here" />
+			</div>
+			<!-- Password HTML code -->
+			<div class="login-info">
+				<label for="password">Password</label>
+				<input type="password" placeholder="Enter your password here" />
+			</div>
+			
+			<div class="buttons">
+				<input id="login-button" class="button" type="button" value="Login" />
+				<a href="sign-up.html">Sign-up</a>
+				<a href="forgot-password.html">Forgot Password?</a>
+			</div>
 		</div>
-		<!-- Password HTML code -->
-		<div class="login-info">
-			<label for="password">Password</label>
-			<input type="password" placeholder="Enter your password here" />
-		</div>
-		<!-- Forgot Password HTML code -->
-		<div class="login-info">
-			<a href="forgot-password.html">Forgot Password?</a>
-		</div>
-		<input id="login-button" type="button" value="Login" />
-    </section>
-    <iframe class="footer" src="footer.html" width="100%"></iframe>
+	</section>
+	<iframe class="footer" src="footer.html" width="100%"></iframe>
 </body>
 
 </html>
