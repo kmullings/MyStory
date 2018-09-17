@@ -74,7 +74,7 @@
             // Checked user is logged in
             if (typeof window.sessionStorage.loggedIn === "undefined" || window.sessionStorage.loggedIn === null || window.sessionStorage.loggedIn === "") {
                 alert("You need to be logged in first.");
-                window.location.href = "/mystory/login.3.html";
+                window.location.href = "/login.3.html";
             }
 
             const results = loadProfile();
@@ -110,7 +110,7 @@
                 document.getElementById("dob").value = profile.dob;
             } else {  // Otherwise display error message and redirect user to login screen
                 alert("You don't have a profile buddy!");
-                window.location.href = "/mystory/sign-up.html";
+                window.location.href = "/sign-up.html";
             }
         }
 
@@ -171,11 +171,11 @@
 
                     // Save updated profile
                     window.localStorage.profiles = JSON.stringify(profiles);
-                    window.location.href = "/mystory/profile.html";
+                    window.location.href = "/profile.html";
                 }
             } else {
                 alert("You don't have a profile buddy!");
-                window.location.href = "/mystory/sign-up.html";
+                window.location.href = "/sign-up.html";
             }
         }
     </script>
