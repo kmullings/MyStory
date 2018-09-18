@@ -1,4 +1,4 @@
-document.getElementById("signUpForm").addEventListener("submit", function (e) {
+document.getElementById("sign-up-form").addEventListener("submit", function (e) {
     // debugger;
 
     e.preventDefault();
@@ -9,13 +9,13 @@ var signUp = function () {
     const profile = {
         firstName: "",
         lastName: "",
-        alias: document.forms["signUpForm"]["alias"].value,
-        email: document.forms["signUpForm"]["email"].value,
-        gender: document.forms["signUpForm"]["gender"].value,
-        dob: document.forms["signUpForm"]["dob"].value,
-        password: document.forms["signUpForm"]["password"].value,
+        alias: document.forms["sign-up-form"]["alias"].value,
+        email: document.forms["sign-up-form"]["email"].value,
+        gender: document.forms["sign-up-form"]["gender"].value,
+        dob: document.forms["sign-up-form"]["dob"].value,
+        password: document.forms["sign-up-form"]["password"].value,
     };
-    const confirmPassword = document.forms["signUpForm"]["confirm-password"].value
+    const confirmPassword = document.forms["sign-up-form"]["confirm-password"].value
 
     // document.write(JSON.stringify(profile));
     console.log(JSON.stringify(profile));

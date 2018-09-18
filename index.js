@@ -1,11 +1,18 @@
 window.onload = function (e) {
-    debugger;
+    // debugger;
 
     if (typeof window.sessionStorage.loggedIn === "undefined" || window.sessionStorage.loggedIn === null || window.sessionStorage.loggedIn === "") {
         alert("You need to be logged in first.");
         window.location.href = "./login.3.html";
     }
 
+    loadStories();
+};
+
+/**
+ * 
+ */
+var loadStories = function () {
     // Get the stories div
     const myStoriesNode = document.getElementById("my-stories");
     const otherStoriesNode = document.getElementById("other-stories");
@@ -22,14 +29,13 @@ window.onload = function (e) {
             const myStoryNode = createStoryNode(story);
 
             myStoriesNode.appendChild(myStoryNode);
-            console.log("It's me!");
         } else {  // Display other stories as well
             const otherStoryNode = createStoryNode(story.id);
+
             otherStoriesNode.appendChild(otherStoryNode);
-            console.log("It's not me!");
         }
     }
-};
+}
 
 /**
  * 
@@ -59,3 +65,11 @@ var createStoryNode = function (story) {
 
     return storyNode;
 }
+
+document.getElementsByClassName("delete-button").addEventListener("click", function (e) {
+    debugger;
+
+    e.preventDefault();
+
+    alert("Clicked delete button.");
+});

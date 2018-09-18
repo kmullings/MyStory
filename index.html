@@ -34,7 +34,7 @@
 
         <div id="other-stories">
             <h2>Other Stories</h2>
-            <div class="story">
+            <!-- <div class="story">
                 <a href="story-details.html">
                     <span class="story-title">Fast Track Class 2</span>
                 </a>
@@ -43,43 +43,17 @@
                 <a href="story-details.html">
                     <span class="story-title">Another Story 2</span>
                 </a>
-            </div>
+            </div> -->
         </div>
 
         <div>
-            <a href="/upsert-story.html">Add Story</a>
+            <a href="/upsert-story.html" class="button">Add Story</a>
         </div>
     </div>
     <footer>
         <iframe class="footer" src="footer.html" width="100%"></iframe>
     </footer>
 
-    <!-- <script>
-        window.onload = function (e) {
-            // debugger;
-
-            if (typeof window.sessionStorage.loggedIn === "undefined" || window.sessionStorage.loggedIn === null || window.sessionStorage.loggedIn === "") {
-                alert("You need to be logged in first.");
-                window.location.href = "./login.3.html";
-            }
-
-            // Get list of stories
-            let stories = window.localStorage.stories ? JSON.parse(window.localStorage.stories) : [];
-
-            // Loop through list of stories
-            for (let index = 0; index < stories.length; index++) {
-                const story = stories[index];
-
-                // Display each story that belongs the logged in user
-                if (story.createdBy == window.sessionStorage.loggedIn) {
-                    console.log("It's me!");
-                } else {  // Display other stories as well
-                    console.log("It's not me!");
-                }
-            }
-
-        };
-    </script> -->
     <script src="index.js"></script>
 </body>
 
