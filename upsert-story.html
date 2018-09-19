@@ -19,12 +19,12 @@
             <!-- Title -->
             <div>
                 <label for="title">Title</label>
-                <input id="title" type="text" placeholder="Enter Title" />
+                <input id="title" type="text" placeholder="Enter Title" required />
             </div>
             <!-- Text -->
             <div>
                 <label for="text">Text</label>
-                <textarea id="text" rows="4" cols="50" placeholder="Enter Text"></textarea>
+                <textarea id="text" rows="4" cols="50" placeholder="Enter Text" required></textarea>
             </div>
             <!-- Lat -->
             <div>
@@ -78,8 +78,8 @@
             </div>
 
             <div class="buttons">
-                <input id="save-button" class="btn btn-default" type="submit" value="Save" />
-                <a href="index.html" class="btn">Cancel</a>
+                <input id="save-button" class="btn btn-primary" type="submit" value="Save" />
+                <a href="index.html" class="btn btn-seconday">Cancel</a>
             </div>
         </form>
     </div>
@@ -87,6 +87,7 @@
         <iframe class="footer" src="footer.html" width="100%"></iframe>
     </footer>
 
+    <script src="./src/stories.js"></script>
     <script src="./src/upser-story.js"></script>
 </body>
 

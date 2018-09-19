@@ -50,7 +50,7 @@ var createStoryNode = function (story) {
     detailsNode.setAttribute("href", "story-details.html?id=" + story.id);
     detailsNode.innerHTML = '<span class="story-title">' + story.title + '</span> |';
 
-    editNode.setAttribute("href", "upsert-details.html?id=" + story.id);
+    editNode.setAttribute("href", "upsert-story.html?id=" + story.id);
     editNode.innerHTML = '<span class="edit-button"> \
         <i>Edit</i> \
     </span> |';
