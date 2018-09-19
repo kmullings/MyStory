@@ -46,16 +46,6 @@ var displayProfile = function (profile) {
     }
 }
 
-document.getElementById("editProfileForm").addEventListener("submit", function (e) {
-    // debugger;
-
-    e.preventDefault();
-
-    const results = loadProfile();
-
-    editProfileForm(results);
-});
-
 var editProfileForm = function (results) {
     if (results.profile != null) {
         let profile = results.profile;

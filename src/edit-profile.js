@@ -11,3 +11,13 @@ window.onload = function (e) {
 
     displayProfile(results.profile);
 };
+
+document.getElementById("editProfileForm").addEventListener("submit", function (e) {
+    // debugger;
+
+    e.preventDefault();
+
+    const results = loadProfile();
+
+    editProfileForm(results);
+});
