@@ -19,7 +19,7 @@ var loadProfile = function () {
         }
     }
 
-    const results = { 
+    const results = {
         profile: profile,
         index: profileIndex
     };
@@ -40,12 +40,17 @@ var displayProfile = function (profile) {
         document.getElementById("email").value = profile.email;
         document.getElementById("gender").value = profile.gender;
         document.getElementById("dob").value = profile.dob;
+        // document.getElementById("password").value = profile.password;
     } else {  // Otherwise display error message and redirect user to login screen
         alert("You don't have a profile buddy!");
         window.location.href = "./sign-up.html";
     }
 }
 
+/**
+ * 
+ * @param {*} results 
+ */
 var editProfileForm = function (results) {
     if (results.profile != null) {
         let profile = results.profile;
@@ -60,9 +65,12 @@ var editProfileForm = function (results) {
             gender: document.forms["editProfileForm"]["gender"].value,
             dob: document.forms["editProfileForm"]["dob"].value,
         };
-        const confirmPassword = document.forms["editProfileForm"]["confirm-password"].value
+        const confirmPassword = document.forms["editProfileForm"]["confirm-password"] ? document.forms["editProfileForm"]["confirm-password"].value : null;
+        const profiles = window.localStorage.profiles ? JSON.parse(window.localStorage.profiles) : [];
 
-        if (profile.password != confirmPassword) {
+        debugger;
+
+        if (updatedProfile.password && results.profile.password != updatedProfile.password && profile.password != confirmPassword) {
             alert("Password must be the same as Confirmation Password.");
         } else {  // Replace old profile with captured profile
             profiles[profileIndex].firstName = updatedProfile.firstName ? updatedProfile.firstName : profiles[profileIndex].firstName;
